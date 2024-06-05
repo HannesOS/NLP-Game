@@ -46,7 +46,7 @@ class WordGuessingGame:
         # Select a random word from the vocabulary with length greater than 3
         word_to_guess = ""
         while len(word_to_guess) <= 3:
-            random_number = np.random.randint(200, 10000)
+            random_number = np.random.randint(200, 3000)
             word_to_guess = self.vocabulary[random_number]
         embedding_word_to_guess = self.model.encode([word_to_guess])[0]
         return word_to_guess, embedding_word_to_guess
