@@ -38,7 +38,7 @@ class WordGuessingGame:
     def create_lower_dim_embed(self):
         # Reduce the dimensionality of embeddings for visualization
         n_dimensions = 3
-        pipeline = Pipeline([('pca', PCA(n_components=n_dimensions)), ('normalize', Normalizer())])
+        pipeline = Pipeline([('standardize', StandardScaler()), ('pca', PCA(n_components=n_dimensions)), ('normalize2', Normalizer())])
         lower_dim_embed = pipeline.fit_transform(self.embedding_list)
         return lower_dim_embed
 
