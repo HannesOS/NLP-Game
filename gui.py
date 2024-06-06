@@ -129,7 +129,7 @@ class GUI:
         self.ax.set_ylim([-1.1, 1.1])
         self.ax.set_zlim([-1.1, 1.1])
         self.ax.scatter(self.game.embed_projection_word_to_guess[0], self.game.embed_projection_word_to_guess[1],
-                        self.game.embed_projection_word_to_guess[2], c=0, vmin=0, vmax=1000, cmap='jet_r', s=200, marker='x')
+                        self.game.embed_projection_word_to_guess[2], vmin=0, vmax=1000, color="black", s=400, marker='X')
         self.plot_canvas.draw()
 
     def win_game(self):
@@ -193,7 +193,7 @@ class GUI:
         # Update the 3D plot with the guessed word
         embed_projection = self.game.lower_dim_embed[np.argwhere(self.game.vocabulary == input_word)][0][0]
         self.ax.scatter(embed_projection[0], embed_projection[1], embed_projection[2], c=self.game.current_word_rank, vmin=0, vmax=1000, s=80, cmap='jet_r')
-        self.ax.text(embed_projection[0], embed_projection[1], embed_projection[2], f"{self.game.number_of_guesses}", size=15)
+        self.ax.text(embed_projection[0]+0.02, embed_projection[1]+0.02, embed_projection[2]+0.02, f"{self.game.number_of_guesses}", size=15)
         self.plot_canvas.draw()
 
     def listbox_on_mouse_wheel(self, event):
